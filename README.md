@@ -1,4 +1,4 @@
-# Modern Frontend Developer Portfolio
+# Portfolio
 
 ## Overview
 A clean, responsive portfolio website for frontend developers built with HTML, Tailwind CSS, and JavaScript. This portfolio template features a modern design with soft shadows, rounded corners, and a mobile-first approach.

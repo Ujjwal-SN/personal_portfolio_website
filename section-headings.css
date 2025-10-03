@@ -1,0 +1,222 @@
+/* Enhanced Section Headings Animation */
+
+/* Base styles for all section headings */
+section h2 {
+    position: relative;
+    display: inline-block;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    perspective: 500px;
+    transition: all 0.5s ease;
+}
+
+/* Common heading container for centering */
+section .heading-container {
+    position: relative;
+    text-align: center;
+    margin-bottom: 3rem;
+    overflow: hidden;
+}
+
+/* Animated underline effect */
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), #4f46e5, #8b5cf6, var(--primary));
+    transform: translateX(-50%);
+    transition: width 0.8s ease;
+    border-radius: 4px;
+    background-size: 300% 100%;
+    animation: gradient-shift 8s linear infinite;
+}
+
+section:hover h2::after {
+    width: 100%;
+}
+
+/* 3D text effect on hover */
+section h2:hover {
+    transform: translateZ(20px);
+    text-shadow: 
+        0 1px 0 #ccc,
+        0 2px 0 #c9c9c9,
+        0 3px 0 #bbb,
+        0 4px 0 #b9b9b9,
+        0 5px 0 #aaa,
+        0 6px 1px rgba(0,0,0,.1),
+        0 0 5px rgba(0,0,0,.1),
+        0 1px 3px rgba(0,0,0,.3),
+        0 3px 5px rgba(0,0,0,.2),
+        0 5px 10px rgba(0,0,0,.25),
+        0 10px 10px rgba(0,0,0,.2),
+        0 20px 20px rgba(0,0,0,.15);
+}
+
+/* Decorative elements */
+.heading-decoration {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    opacity: 0.6;
+    z-index: -1;
+}
+
+.heading-decoration.left {
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: float-left 3s ease-in-out infinite;
+}
+
+.heading-decoration.right {
+    right: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: float-right 3s ease-in-out infinite;
+}
+
+@keyframes float-left {
+    0%, 100% { transform: translateY(-50%) translateX(0); }
+    50% { transform: translateY(-50%) translateX(-10px); }
+}
+
+@keyframes float-right {
+    0%, 100% { transform: translateY(-50%) translateX(0); }
+    50% { transform: translateY(-50%) translateX(10px); }
+}
+
+/* Heading subtitle */
+.heading-subtitle {
+    display: block;
+    font-size: 1rem;
+    color: #6b7280;
+    margin-top: 0.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+section:hover .heading-subtitle {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Specific styles for each section */
+#skills h2 {
+    color: var(--primary);
+}
+
+#projects h2 {
+    color: #4f46e5;
+}
+
+#about h2 {
+    color: #8b5cf6;
+}
+
+#contact h2 {
+    color: #10B981;
+}
+
+/* Animated dots for headings */
+.animated-dots {
+    display: inline-flex;
+    margin-left: 0.5rem;
+}
+
+.animated-dots span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin: 0 2px;
+    background-color: currentColor;
+    opacity: 0.7;
+    animation: dots-pulse 1.5s infinite;
+}
+
+.animated-dots span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.animated-dots span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes dots-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.5); opacity: 1; }
+}
+
+/* Enhanced About Me section animations */
+.about-image-container {
+    position: relative;
+    overflow: visible;
+}
+
+.floating-element {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(45deg, var(--primary), #4f46e5);
+    filter: blur(15px);
+    opacity: 0.5;
+    z-index: -1;
+    animation: float 6s ease-in-out infinite;
+}
+
+.floating-element:nth-child(1) {
+    width: 80px;
+    height: 80px;
+    top: -20px;
+    left: -20px;
+    animation-duration: 8s;
+}
+
+.floating-element:nth-child(2) {
+    width: 60px;
+    height: 60px;
+    bottom: -10px;
+    right: -10px;
+    animation-duration: 6s;
+    animation-delay: 1s;
+}
+
+.floating-element:nth-child(3) {
+    width: 40px;
+    height: 40px;
+    bottom: 40%;
+    left: -15px;
+    animation-duration: 5s;
+    animation-delay: 0.5s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(10deg); }
+}
+
+/* Animated background for About section */
+.about-bg-animation {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(59, 130, 246, 0.05) 0%, rgba(79, 70, 229, 0.05) 100%);
+    z-index: -1;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.8s ease;
+}
+
+#about:hover .about-bg-animation {
+    transform: translateY(0);
+    opacity: 1;
+}

@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ujjwal Singh | Frontend Developer</title>
+    
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <!-- Particles.js for background effects -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="project-animations.css">
+    <link rel="stylesheet" href="section-headings.css">
+    
+    <style>
+        /* Tailwind CSS Configuration */
+        :root {
+            --primary: #3B82F6;
+            --secondary: #10B981;
+            --dark: #1F2937;
+            --light: #F9FAFB;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .bg-primary {
+            background-color: var(--primary);
+        }
+        
+        .bg-secondary {
+            background-color: var(--secondary);
+        }
+        
+        .bg-dark {
+            background-color: var(--dark);
+        }
+        
+        .bg-light {
+            background-color: var(--light);
+        }
+        
+        .text-primary {
+            color: var(--primary);
+        }
+        
+        .text-secondary {
+            color: var(--secondary);
+        }
+        
+        .border-primary {
+            border-color: var(--primary);
+        }
+        @keyframes greetFade {
+            0% { opacity: 0; transform: translateY(30px) scale(0.95); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .animate-greet-fade {
+            animation: greetFade 1.1s cubic-bezier(0.23, 1, 0.32, 1) both;
+        }
+        /* Custom Get In Touch Button Animation */
+        .cta-button {
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-button::after {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; right: 0; bottom: 0;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 0;
+        }
+        .cta-button:hover::after, .cta-button:focus::after {
+            opacity: 0.15;
+        }
+        .cta-button > * {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body class="bg-light text-gray-800">
+    <div class="scroll-progress"></div>
+    <!-- Custom Cursor Elements Removed -->
+    
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-primary">Portfolio</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="#skills" class="hover:text-primary transition">Skills</a>
+                <a href="#projects" class="hover:text-primary transition">Projects</a>
+                <a href="#about" class="hover:text-primary transition">About</a>
+                <a href="#contact" class="hover:text-primary transition">Contact</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-dark focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <a href="#skills" class="hover:text-primary transition">Skills</a>
+                <a href="#projects" class="hover:text-primary transition">Projects</a>
+                <a href="#about" class="hover:text-primary transition">About</a>
+                <a href="#contact" class="hover:text-primary transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="py-20 animated-gradient text-white relative overflow-hidden">
+        <!-- Particle Background -->
+        <div id="particles-js"></div>
+        
+        <div class="container mx-auto px-4 relative">
+            <div class="flex flex-col items-center justify-center text-center hero-content">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 hero-text">Hi, I'm <span class="text-yellow-300">Ujjwal Singh</span></h1>
+                <h2 class="text-2xl md:text-3xl mb-6 typing-animation">Frontend Developer</h2>
+                <p class="text-lg md:text-xl mb-8 max-w-2xl hero-text">I build beautiful, responsive websites with modern technologies that help businesses grow.</p>
+                <a href="#contact" class="bg-white text-primary font-medium px-8 py-3 rounded-lg shadow-md hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white transition cta-button flex items-center gap-3 group">
+                    Get In Touch
+                    <span class="inline-block transform transition-transform duration-300 group-hover:translate-y-2 motion-reduce:transform-none">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-white relative overflow-hidden">
+        <!-- Background pattern -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,#fff,rgba(255,255,255,0.5))]"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <span class="inline-block px-3 py-1 text-sm font-semibold text-primary bg-blue-50 rounded-full mb-4">TECHNICAL EXPERTISE</span>
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">My <span class="text-primary">Skills</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
+            </div>
+            
+            <!-- Skills Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Frontend Skills -->
+                <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="flex items-center mb-6">
+                        <div class="p-3 bg-blue-50 rounded-lg mr-4">
+                            <i class="fas fa-laptop-code text-2xl text-primary"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Frontend Development</h3>
+                    </div>
+                    <div class="space-y-5">
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-gray-700">HTML5 & CSS3</span>
+                                <span class="text-sm font-medium text-primary">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-gray-700">JavaScript (ES6+)</span>
+                                <span class="text-sm font-medium text-primary">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-gray-700">React.js</span>
+                                <span class="text-sm font-medium text-primary">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-gray-700">Tailwind CSS</span>
+                                <span class="text-sm font-medium text-primary">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backend Skills -->
+                <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="flex items-center mb-6">
+                        <div class="p-3 bg-green-50 rounded-lg mr-4">
+                            <i class="fas fa-server text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Backend Development</h3>
+                    </div>
+                    <div class="space-y-5">
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-gray-700">Node.js</span>
+                                <span class="text-sm font-medium text-green-600">85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-green-500 h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-gray-700">Express.js</span>
+                                <span class="text-sm font-medium text-green-600">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-green-500 h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-gray-700">MongoDB</span>
+                                <span class="text-sm font-medium text-green-600">75%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-green-500 h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-gray-700">Firebase</span>
+                                <span class="text-sm font-medium text-green-600">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-green-500 h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools & Other -->
+                <div class="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="flex items-center mb-6">
+                        <div class="p-3 bg-purple-50 rounded-lg mr-4">
+                            <i class="fas fa-tools text-2xl text-purple-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800">Tools & Others</h3>
+                    </div>
+                    <div class="space-y-5">
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-gray-700">Git & GitHub</span>
+                                <span class="text-sm font-medium text-purple-600">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-purple-500 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-gray-700">Responsive Design</span>
+                                <span class="text-sm font-medium text-purple-600">95%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-purple-500 h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-gray-700">UI/UX Design</span>
+                                <span class="text-sm font-medium text-purple-600">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-purple-500 h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm font-medium text-gray-700">Problem Solving</span>
+                                <span class="text-sm font-medium text-purple-600">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-purple-500 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Skills -->
+            <div class="mt-12 text-center">
+                <h4 class="text-lg font-semibold text-gray-700 mb-4">Also experienced with:</h4>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-primary hover:text-white transition-colors">
+                        <i class="fab fa-figma mr-1"></i> Figma
+                    </span>
+                    <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-primary hover:text-white transition-colors">
+                        <i class="fab fa-npm mr-1"></i> npm
+                    </span>
+                    <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-primary hover:text-white transition-colors">
+                        <i class="fas fa-terminal mr-1"></i> CLI
+                    </span>
+                    <span class="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium hover:bg-primary hover:text-white transition-colors">
+                        <i class="fas fa-mobile-alt mr-1"></i> Mobile-First
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 bg-light">
+        <div class="container mx-auto px-4">
+            <div class="heading-container">
+                <div class="heading-decoration left">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 17V19H9V17H3ZM3 5V7H13V5H3ZM13 21V19H21V17H13V15H11V21H13ZM7 9V11H3V13H7V15H9V9H7ZM21 13V11H11V13H21ZM15 9H17V7H21V5H17V3H15V9Z" fill="currentColor"/>
+                    </svg>
+                </div>
+                <h2 class="text-3xl font-bold text-center">My Projects
+                    <div class="animated-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </h2>
+                <span class="heading-subtitle">Recent work I've completed</span>
+                <div class="heading-decoration right">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 17V19H9V17H3ZM3 5V7H13V5H3ZM13 21V19H21V17H13V15H11V21H13ZM7 9V11H3V13H7V15H9V9H7ZM21 13V11H11V13H21ZM15 9H17V7H21V5H17V3H15V9Z" fill="currentColor"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition project-card">
+                    <div class="project-image-container">
+                        <img src="images/portfolio.jpg" alt="Personal Portfolio" class="project-img-responsive" loading="lazy">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">My Portfolio</h3>
+                        <p class="text-gray-600 mb-4">A responsive personal portfolio website to showcase skills and projects. Built with modern web technologies and AI tools for enhanced development.</p>
+                        <div class="flex flex-wrap gap-3 mb-3">
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded">HTML</span>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded">CSS</span>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded">JavaScript</span>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded">React</span>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded">AI Tools</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="https://ujjwal11portfolio.netlify.app" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline"><i class="fas fa-external-link-alt mr-1"></i> Live Demo</a>
+                            <a href="https://github.com/Ujjwal-SN" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline"><i class="fab fa-github mr-1"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition project-card">
+                    <div class="project-image-container">
+                        <img src="images/ecommerce.jpg" alt="Samudra Axis Business Website" class="project-img-responsive" loading="lazy">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Samudra Axis</h3>
+                        <p class="text-gray-600 mb-4">A professional business website for Samudra Axis, showcasing their services and enabling customer engagement with a modern, responsive design.</p>
+                        <div class="flex flex-wrap gap-3 mb-3">
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded">HTML</span>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded">CSS</span>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded">JavaScript</span>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded">Node.js</span>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded">Firebase</span>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded">AI Tools</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="https://mymainproject.netlify.app" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline"><i class="fas fa-external-link-alt mr-1"></i> Live Demo</a>
+                            <a href="https://github.com/Ujjwal-SN" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline"><i class="fab fa-github mr-1"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition project-card">
+                    <div class="project-image-container">
+                        <img src="images/task.jpg" alt="Admin Dashboard" class="project-img-responsive" loading="lazy">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Admin Dashboard</h3>
+                        <p class="text-gray-600 mb-4">A responsive admin dashboard with data visualization and user management features, designed for efficient data monitoring and administration.</p>
+                        <div class="flex flex-wrap gap-3 mb-3">
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded">HTML</span>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded">CSS</span>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded">JavaScript</span>
+                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded">Node.js</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="https://admin11dashboard.netlify.app" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline"><i class="fas fa-external-link-alt mr-1"></i> Live Demo</a>
+                            <a href="https://github.com/Ujjwal-SN" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline"><i class="fab fa-github mr-1"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="about-bg-animation"></div>
+        <div class="container mx-auto px-4">
+            <div class="heading-container">
+                <div class="heading-decoration left">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z" fill="currentColor"/>
+                    </svg>
+                </div>
+                <h2 class="text-3xl font-bold text-center">About Me
+                    <div class="animated-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </h2>
+                <span class="heading-subtitle">Get to know me better</span>
+                <div class="heading-decoration right">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z" fill="currentColor"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row items-center gap-10">
+                <div class="md:w-1/3 mb-8 md:mb-0 about-image-container" id="profile-image">
+                    <img src="images/ujjwal.jpg" alt="Ujjwal Singh" id="about-image" loading="lazy" style="display:block; margin-left:auto; margin-right:auto; background:#fff; border-radius:50%; object-fit:cover; width:220px; height:220px; box-shadow:0 4px 24px rgba(0,0,0,0.12); border:4px solid #3B82F6;" onerror="this.src='https://via.placeholder.com/220?text=No+Image'">
+                </div>
+                <div class="md:w-2/3">
+                    <!-- Greeting with Typewriter Effect -->
+                    <div class="mb-4">
+                        <p class="text-2xl md:text-3xl font-extrabold text-primary pb-2">
+                            <span class="inline-block">
+                                <span id="greeting-text" class="inline-block"></span>
+                                <span class="typing-caret">|</span>
+                            </span>
+                        </p>
+                    </div>
+                    <p class="text-lg mb-4 about-text">A frontend developer specializing in building clean, responsive, and user-centric interfaces. I leverage modern frameworks like <span class="tech-tag">React</span> and <span class="tech-tag">Tailwind CSS</span>, along with AI tools, to accelerate development and enhance performance. My focus is on delivering scalable, accessible, and future-ready web solutions.</p>
+                    <p class="text-lg mb-4 about-text">My journey in web development started when I was in college, and since then, I've worked with various clients for helping them to achieve their digital goals.</p>
+                    <p class="text-lg about-text">When I'm not coding, you can find me trying new AI tools, reading tech blogs, or experimenting with new web technologies. I'm always eager to learn and grow in this ever-evolving field.</p>
+                    <div class="mt-6 flex flex-wrap gap-3">
+                        <span class="interest-badge">Web Design</span>
+                        <span class="interest-badge">UI/UX</span>
+                        <span class="interest-badge">Control Version</span>
+                        <span class="interest-badge">Cloud Computing</span>
+                        <span class="interest-badge">AI Integration</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gradient-to-br from-blue-50 via-white to-green-50">
+        <div class="container mx-auto px-4">
+            <div class="heading-container mb-12">
+                <div class="heading-decoration left">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z" fill="currentColor"/>
+                    </svg>
+                </div>
+                <h2 class="text-3xl font-bold text-center">Get In Touch
+                    <div class="animated-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </h2>
+                <span class="heading-subtitle">Let's build something amazing together</span>
+                <div class="heading-decoration right">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z" fill="currentColor"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row gap-10 items-stretch justify-center">
+                <!-- Contact Form Card (now on the left) -->
+                <div class="md:w-2/3 bg-white/80 backdrop-blur-lg rounded-2xl shadow-2xl p-8 animate-fade-in-up order-1 md:order-1">
+                    <form id="contact-form" class="space-y-6">
+                        <div class="relative">
+                            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-primary"><i class="fas fa-user"></i></span>
+                            <input type="text" id="name" name="name" placeholder=" " class="w-full pl-10 pr-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary form-input bg-white/70" required>
+                            <label for="name" class="form-input-label left-10">Your Name</label>
+                            <p id="name-error" class="text-red-500 text-sm mt-1 hidden">Please enter your name</p>
+                        </div>
+                        <div class="relative">
+                            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-primary"><i class="fas fa-envelope"></i></span>
+                            <input type="email" id="email" name="email" placeholder=" " class="w-full pl-10 pr-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary form-input bg-white/70" required>
+                            <label for="email" class="form-input-label left-10">Your Email</label>
+                            <p id="email-error" class="text-red-500 text-sm mt-1 hidden">Please enter a valid email address</p>
+                        </div>
+                        <div class="relative">
+                            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-primary"><i class="fas fa-tag"></i></span>
+                            <select id="subject" name="subject" class="w-full pl-10 pr-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary form-input bg-white/70" required>
+                                <option value="" disabled selected></option>
+                                <option value="project">Project Inquiry</option>
+                                <option value="job">Job Opportunity</option>
+                                <option value="collaboration">Collaboration</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <label for="subject" class="form-input-label left-10">Subject</label>
+                        </div>
+                        <div class="relative">
+                            <span class="absolute left-4 top-6 text-primary"><i class="fas fa-comment-dots"></i></span>
+                            <textarea id="message" name="message" rows="5" placeholder=" " class="w-full pl-10 pr-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary form-input bg-white/70" required></textarea>
+                            <label for="message" class="form-input-label left-10">Your Message</label>
+                            <p id="message-error" class="text-red-500 text-sm mt-1 hidden">Please enter your message</p>
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <input type="checkbox" id="newsletter" name="newsletter" class="mr-2">
+                            <label for="newsletter" class="text-gray-700">Subscribe to my newsletter for updates</label>
+                        </div>
+                        <button type="submit" class="w-full bg-primary text-white font-bold py-3 rounded-lg shadow-lg hover:bg-blue-700 transition-all duration-300 cta-button text-lg tracking-wide flex items-center justify-center gap-2">
+                            <i class="fas fa-paper-plane animate-bounce"></i> Send Message
+                        </button>
+                    </form>
+                    <div id="form-success" class="hidden mt-6 p-4 bg-green-100 text-green-700 rounded-lg">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Thank you for your message! I'll get back to you soon.</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Contact Info Panel (now on the right) -->
+                <div class="md:w-1/3 bg-white/60 backdrop-blur-lg rounded-2xl shadow-xl p-8 flex flex-col justify-between mb-8 md:mb-0 order-2 md:order-2 transition-transform duration-300 hover:scale-105 hover:shadow-2xl contact-info-animated">
+                    <h3 class="text-xl font-semibold mb-4 text-primary flex items-center gap-2"><i class="fas fa-address-card text-primary"></i> Contact Info</h3>
+                    <div class="space-y-4 text-gray-700">
+                        <div class="flex items-center gap-3 group"><i class="fas fa-envelope text-primary transition-transform duration-300 group-hover:scale-125"></i> <span class="transition-colors duration-300 group-hover:text-primary">raghuvanshiujjwalsingh11@gmail.com</span></div>
+                        <div class="flex items-center gap-3 group"><i class="fas fa-map-marker-alt text-primary transition-transform duration-300 group-hover:scale-125"></i> <span class="transition-colors duration-300 group-hover:text-primary">Chandauli, India</span></div>
+                        <div class="flex items-center gap-3 group"><i class="fas fa-phone-alt text-primary transition-transform duration-300 group-hover:scale-125"></i> <span class="transition-colors duration-300 group-hover:text-primary">+91 6395145388</span></div>
+                    </div>
+                    <div class="mt-8">
+                        <p class="text-gray-600 mb-4">You can also find me on:</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-primary hover:text-blue-700 transition transform hover:scale-125 social-anim" title="GitHub"><i class="fab fa-github text-2xl"></i></a>
+                            <a href="#" class="text-primary hover:text-blue-700 transition transform hover:scale-125 social-anim" title="LinkedIn"><i class="fab fa-linkedin text-2xl"></i></a>
+                            <a href="#" class="text-primary hover:text-blue-700 transition transform hover:scale-125 social-anim" title="Twitter"><i class="fab fa-twitter text-2xl"></i></a>
+                            <a href="#" class="text-primary hover:text-blue-700 transition transform hover:scale-125 social-anim" title="Instagram"><i class="fab fa-instagram text-2xl"></i></a>
+                        </div>
+                    </div>
+                    <div class="mt-8 text-sm text-gray-500 italic">I usually reply within 24 hours!</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative bg-black text-white pt-20 pb-14 mt-16 animate-fade-in-up overflow-visible border-t-4 border-primary">
+        <!-- Decorative SVG Wave (subtle, or remove if not needed) -->
+        <div class="absolute -top-16 left-0 w-full overflow-visible leading-none pointer-events-none z-0">
+            <svg class="w-full h-12 md:h-16" viewBox="0 0 1440 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill="currentColor" fill-opacity="0.04" d="M0,32 C360,80 1080,0 1440,32 L1440,52 L0,52 Z"></path>
+            </svg>
+        </div>
+        <div class="container mx-auto px-4 relative z-10">
+            <!-- Animated Quote -->
+            <div class="flex flex-col items-center mb-10">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="block w-8 h-1 rounded bg-primary animate-glow"></span>
+                    <i class="fas fa-quote-left text-primary text-xl animate-glow"></i>
+                </div>
+                <blockquote class="text-center text-lg md:text-2xl italic font-medium text-white animate-fade-quote max-w-2xl" style="text-shadow:0 2px 12px rgba(0,0,0,0.45)">
+                    "Behind every clean UI, there's a hundred dirty commits."
+                </blockquote>
+                <span class="mt-2 text-primary text-sm font-semibold animate-glow">— Ujjwal Singh</span>
+            </div>
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-8">
+                <div class="mb-6 md:mb-0 text-center md:text-left">
+                    <div class="flex items-center gap-3 justify-center md:justify-start mb-2">
+                        <span class="text-2xl font-bold tracking-wide text-white" style="text-shadow:0 2px 12px rgba(0,0,0,0.45)">Ujjwal Singh</span>
+                        <span class="bg-primary text-white text-xs px-2 py-1 rounded-full font-semibold">Frontend Developer</span>
+                    </div>
+                    <p class="text-sm text-white" style="text-shadow:0 2px 12px rgba(0,0,0,0.45)">&copy; 2025 Ujjwal Singh. All rights reserved.</p>
+                </div>
+                <div class="flex flex-col items-center md:items-end gap-3">
+                    <div class="flex space-x-5 mb-2">
+                        <a href="#" class="group transition" title="GitHub">
+                            <span class="inline-block bg-primary p-3 rounded-full hover:bg-blue-600 transition-transform duration-300 group-hover:scale-125">
+                                <i class="fab fa-github text-2xl text-white group-hover:text-black transition-colors" style="text-shadow:0 2px 12px rgba(0,0,0,0.45)"></i>
+                            </span>
+                        </a>
+                        <a href="#" class="group transition" title="LinkedIn">
+                            <span class="inline-block bg-primary p-3 rounded-full hover:bg-blue-600 transition-transform duration-300 group-hover:scale-125">
+                                <i class="fab fa-linkedin text-2xl text-white group-hover:text-blue-200 transition-colors" style="text-shadow:0 2px 12px rgba(0,0,0,0.45)"></i>
+                            </span>
+                        </a>
+                        <a href="#" class="group transition" title="Twitter">
+                            <span class="inline-block bg-primary p-3 rounded-full hover:bg-blue-600 transition-transform duration-300 group-hover:scale-125">
+                                <i class="fab fa-twitter text-2xl text-white group-hover:text-blue-300 transition-colors" style="text-shadow:0 2px 12px rgba(0,0,0,0.45)"></i>
+                            </span>
+                        </a>
+                        <a href="#" class="group transition" title="Instagram">
+                            <span class="inline-block bg-primary p-3 rounded-full hover:bg-blue-600 transition-transform duration-300 group-hover:scale-125">
+                                <i class="fab fa-instagram text-2xl text-white group-hover:text-pink-400 transition-colors" style="text-shadow:0 2px 12px rgba(0,0,0,0.45)"></i>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="text-xs text-white" style="text-shadow:0 2px 12px rgba(0,0,0,0.45)">Let's connect and create something great!</div>
+                </div>
+            </div>
+        </div>
+        <style>
+        .animate-fade-in-up {
+          animation: fadeInUp 0.8s cubic-bezier(0.23, 1, 0.32, 1) both;
+        }
+        @keyframes fadeQuote {
+          0% { opacity: 0; transform: translateY(30px) scale(0.95); }
+          100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .animate-fade-quote {
+          animation: fadeQuote 1.2s 0.2s cubic-bezier(0.23, 1, 0.32, 1) both;
+        }
+        @keyframes glow {
+          0%, 100% { box-shadow: 0 0 0 0 #3B82F6; }
+          50% { box-shadow: 0 0 16px 2px #3B82F6; }
+        }
+        .animate-glow {
+          animation: glow 2.2s infinite;
+        }
+        .about-caret {
+          display: inline-block;
+          margin-left: 2px;
+          width: 1ch;
+          color: #3B82F6;
+          animation: about-blink 1s steps(1) infinite;
+          font-weight: bold;
+          font-size: 1em;
+        }
+        @keyframes about-blink {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0; }
+        }
+        </style>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" class="fixed bottom-5 right-5 bg-primary text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-blue-600 z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+    <script src="project-images.js"></script>
+    <script src="about-animations.js"></script>
+    <script>
+    // Animate skill progress bars when Skills section is in view
+    document.addEventListener('DOMContentLoaded', function() {
+      const skillsSection = document.getElementById('skills');
+      const progressBars = document.querySelectorAll('.skill-progress');
+      let animated = false;
+      function animateBars() {
+        if (animated) return;
+        const rect = skillsSection.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          progressBars.forEach(bar => {
+            const percent = bar.getAttribute('data-percentage');
+            bar.style.transition = 'width 1.2s cubic-bezier(0.23, 1, 0.32, 1)';
+            bar.style.width = percent + '%';
+          });
+          animated = true;
+        }
+      }
+      window.addEventListener('scroll', animateBars);
+      animateBars(); // in case already in view
+    });
+    
+    // WhatsApp integration for contact form
+    document.addEventListener('DOMContentLoaded', function() {
+      const contactForm = document.getElementById('contact-form');
+      if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const name = document.getElementById('name').value.trim();
+          const email = document.getElementById('email').value.trim();
+          const subject = document.getElementById('subject').value;
+          const message = document.getElementById('message').value.trim();
+          let subjectText = '';
+          switch(subject) {
+            case 'project': subjectText = 'Project Inquiry'; break;
+            case 'job': subjectText = 'Job Opportunity'; break;
+            case 'collaboration': subjectText = 'Collaboration'; break;
+            case 'other': subjectText = 'Other'; break;
+            default: subjectText = '';
+          }
+          const whatsappNumber = '916395145388'; // WhatsApp number without +
+          const text = `Hello Ujjwal!%0A%0AName: ${encodeURIComponent(name)}%0AEmail: ${encodeURIComponent(email)}%0ASubject: ${encodeURIComponent(subjectText)}%0AMessage: ${encodeURIComponent(message)}`;
+          const url = `https://wa.me/${whatsappNumber}?text=${text}`;
+          window.open(url, '_blank');
+        });
+      }
+    });
+    </script>
+</body>
+</html>
